@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Trainer</title>
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <header class="forms-header">
+        <div class="container">
+            <h1>EDIT TRAINER</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-forms">
+        <div class="container">
+            <ul>
+                <li class="navitem"><a href="../tables/trainers.html">Back</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+        <div>
+            <form id="editTrainerForm"  class="forms" name="trainerForm">
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>First Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="editTrainerFirstName" type="text" value="Anestis"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Last Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="editTrainerLastName" type="text" value="Sotiriou"/>
+                    </div>
+                </div>
+
+               
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Subject: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z\s]{2,15}" id="editTrainerSubject" type="text" value="Front End"/>
+                    </div>
+                </div>
+                
+                <button type="submit" id="edittrainerbtnId">Save</button>
+
+            </form>
+          </div>
+    
+        <script>
+            let editTrainerForm = document.querySelector('#editTrainerForm');
+            editTrainerForm.addEventListener('submit', handleSubmit);
+    
+            function handleSubmit(e){
+    
+                e.preventDefault();
+                let firstName = document.querySelector("#editTrainerFirstName").value;
+                let lastName = document.querySelector("#editTrainerLastName").value;
+                let subject = document.querySelector("#editTrainerSubject").value;
+                let newTrainer = `<td>${firstName}</td><td>${lastName}</td><td>${subject}</td>`;
+
+                localStorage.setItem('action_triggered', 'edit');
+                localStorage.setItem('new_trainer', newTrainer);
+                window.document.location = '../tables/trainers.html';
+
+            }
+        </script>
+
+</body>
+</html>

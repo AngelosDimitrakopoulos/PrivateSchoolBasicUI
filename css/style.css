@@ -1,0 +1,100 @@
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(../fonts/University.otf);
+  }
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+}
+
+#main-header {
+    background-color: #F88379;
+    width: 100%;
+    height: 100px;
+}
+
+#main-header .container h1 {
+    color: #333333;
+    text-align: center;
+    padding-top: 30px;
+    margin: auto;
+    font-family: myFirstFont;
+    letter-spacing: 2px;
+}
+#navbar {
+    background-color: #333333;
+}
+#navbar ul {
+    margin: 0;
+    padding: 10px;
+}
+#navbar .navitem{
+    display: inline-block;
+}
+#navbar .navitem a{
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+#navbar .navitem a:hover {
+    color: #F88379;
+}
+
+
+#showcase img {
+    /* border: 1px solid red; */
+    width: 100%;
+}
+
+#menu #spans span {
+    margin-left: 30%;
+    /* padding: 30px; */
+    margin-top: 30px;
+    background-color: lightgray;
+    border: 3px solid #333333;
+    /* border: 3px solid green; */
+    font-weight: bold;
+    font-size: 2em;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    text-align: center;
+    width: 40%;
+    display: inline-block;
+}
+
+#menu a{
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    color: #333333;
+    padding: 30px;
+    display: block;
+}
+
+#menu a:hover {
+    background-color: #F88379;
+}
+
+#footer{
+    background-color: #333333;
+    color: #fff;
+    margin-top: 150px; 
+    position: relative;
+    font-size: 1.2em;
+    width: 100%;
+    height: 60px;
+    padding-top: 30px;
+}
+
+#footer .container{
+    text-align: center;
+}
+
+
+
+

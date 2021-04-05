@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding School | Assignments per Student per Course</title>
+    <link rel="stylesheet" href="../css/tables.css">
+</head>
+<body>
+    <header class="tables-header">
+        <div class="container">
+            <h1>ASSIGNMENTS per STUDENT per COURSE</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-tables">
+        <ul>
+            <li class="navitem"><a href="../index.html">Home</a></li>
+            <li class="navitem"><a href="../forms/addAssignmentsPerStudentPerCourse.html">Add Assignment Per Student Per Course</a></li>
+            <li class="navitem"><a href="../forms/editAssignmentsPerStudentPerCourse.html">Edit Assignment Per Student Per Course</a></li>
+            <li class="navitem"><a href="../forms/updateAssignmentsPerStudentPerCourse.html">Update Assignment Per Student Per Course</a></li>
+        </ul>
+    </nav>
+
+    <label class="courseForPerCourseLabel" for="courseForPerCourse">Choose a Course:</label>
+    <select name="course" class="courseForPerCourse">
+        <option value="" selected disabled hidden>--Please choose a Course--</option>
+        <option value="CB8 Java Full Time">CB8 Java Full Time</option>
+        <option value="CB8 Java Part Time">CB8 Java Part Time</option>
+        <option value="CB8 C# Full Time">CB8 C# Full Time</option>
+        <option value="CB8 C# Part Time">CB8 C# Part Time</option>
+    </select>
+    <br>
+    <label class="studentForPerCourseLabel" for="studentForPerCourse">Choose a Student:</label>
+    <select name="student" class="studentForPerCourse">
+        <option value="" selected disabled hidden>--Please choose a Student--</option>
+        <option value="Angelos Dimitrakopoulos">Angelos Dimitrakopoulos</option>
+        <option value="Iosif Argiropoulos">Iosif Argiropoulos</option>
+        <option value="Eleni Logara">Eleni Logara</option>
+        <option value="Alexandros Kontos">Alexandros Kontos</option>
+    </select>
+
+    <section class="tables-main">
+        <table class="tables" id="assignmentsPerStudentPerCourseTable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Submission DateTime</th>
+                    <th>Oral Mark</th>
+                    <th>Total Mark</th>
+                    <th>Course</th>
+                    <th>Student</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="editFirstAssignmentPerStudentPerCourse">
+                    <td>JFT Assignment 1</td>
+                    <td>First Full Time Java Assignment</td>
+                    <td>2019-01-15T23:59</td>
+                    <td>../20</td>
+                    <td>../100</td>
+                    <td>CB8 Java Full Time</td>
+                    <td>Angelos Dimitrakopoulos</td>
+                </tr>
+                <tr id="updateSecondAssignmentPerStudentPerCourse">
+                    <td>JFT Assignment 2</td>
+                    <td>Second Full Time Java Assignment</td>
+                    <td>2019-01-29T23:59</td>
+                    <td>../20</td>
+                    <td>../100</td>
+                    <td>CB8 Java Full Time</td>
+                    <td>Angelos Dimitrakopoulos</td>
+                </tr>
+                <tr>
+                    <td>JFT Assignment 3</td>
+                    <td>Third Full Time Java Assignment</td>
+                    <td>2019-02-12T23:59</td>
+                    <td>../20</td>
+                    <td>../100</td>
+                    <td>CB8 Java Full Time</td>
+                    <td>Angelos Dimitrakopoulos</td>
+                </tr>
+                <tr>
+                    <td>JFT Assignment 4</td>
+                    <td>Fourth Full Time Java Assignment</td>
+                    <td>2019-02-26T23:59</td>
+                    <td>../20</td>
+                    <td>../100</td>
+                    <td>CB8 Java Full Time</td>
+                    <td>Angelos Dimitrakopoulos</td>
+                </tr>
+                <tr>
+                    <td>JFT Assignment 5</td>
+                    <td>Fifth Full Time Java Assignment</td>
+                    <td>2019-03-13T23:59</td>
+                    <td>../20</td>
+                    <td>../100</td>
+                    <td>CB8 Java Full Time</td>
+                    <td>Angelos Dimitrakopoulos</td>
+                </tr>
+                <tr>
+                    <td>JFT Project 1</td>
+                    <td>Individual Full Time Java Project</td>
+                    <td>2019-02-15T23:59</td>
+                    <td>../20</td>
+                    <td>../100</td>
+                    <td>CB8 Java Full Time</td>
+                    <td>Angelos Dimitrakopoulos</td>
+                </tr>
+                <tr>
+                    <td>JFT Project 2</td>
+                    <td>Team Full Time Java Project</td>
+                    <td>2019-03-29T23:59</td>
+                    <td>../20</td>
+                    <td>../100</td>
+                    <td>CB8 Java Full Time</td>
+                    <td>Angelos Dimitrakopoulos</td>
+                </tr>
+                
+            </tbody>
+        </table>
+        
+    </section>
+
+    <script>
+        let actionTriggered = localStorage.getItem('action_triggered');
+        if(actionTriggered === 'add') {
+            // Inserts new assignmentPerStudentPerCourse in assignmentsPerStudentPerCourse table 
+            // (adds one new assignmentPerStudentPerCourse but removes it if we add another one)
+            let assignmentsPerStudentPerCourseTable = document.querySelector("#assignmentsPerStudentPerCourseTable tbody");
+            let newAssignmentPerStudentPerCourse = localStorage.getItem('new_assignmentPerStudentPerCourse');
+            // assignmentsPerStudentPerCourseTable.innerHTML += newAssignmentPerStudentPerCourse;
+        }else if (actionTriggered === 'edit') {
+            // Edits the first assignmentPerStudentPerCourse 
+            // (we should insert a dropdown menu and select which assignmentPerStudentPerCourse to edit
+            // or put edit next to every existing assignmentPerStudentPerCourse and select this way the assignmentPerStudentPerCourse to edit)
+            let assignmentsPerStudentPerCourseTable = document.querySelector("#assignmentsPerStudentPerCourseTable tbody");
+            let newAssignmentPerStudentPerCourse = localStorage.getItem('new_assignmentPerStudentPerCourse');
+            document.querySelector('#editFirstAssignmentPerStudentPerCourse').innerHTML = newAssignmentPerStudentPerCourse;
+        } else {
+            // Updates the second student 
+            // (we should insert a dropdown menu and select which assignmentPerStudentPerCourse to update
+            // or put update next to every existing assignmentPerStudentPerCourse and select this way the assignmentPerStudentPerCourse to update)
+            let assignmentsPerStudentPerCourseTable = document.querySelector("#assignmentsPerStudentPerCourseTable tbody");
+            let newAssignmentPerStudentPerCourse = localStorage.getItem('new_assignmentPerStudentPerCourse');
+            document.querySelector('#updateSecondAssignmentPerStudentPerCourse').innerHTML = newAssignmentPerStudentPerCourse;
+        }
+    </script>
+</body>
+</html>

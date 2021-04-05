@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Trainer</title>
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <header class="forms-header">
+        <div class="container">
+            <h1>ADD TRAINER</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-forms">
+        <div class="container">
+            <ul>
+                <li class="navitem"><a href="../tables/trainers.html">Back</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+        <div>
+            <form id="addTrainerForm"  class="forms" name="trainerForm">
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>First Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="addTrainerFirstName" type="text" placeholder="first name..."/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Last Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="addTrainerLastName" type="text" placeholder="last name..."/>
+                    </div>
+                </div>
+
+               
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Subject: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z\s]{2,15}" id="addTrainerSubject" type="text" placeholder="subject..."/>
+                    </div>
+                </div>
+                
+                <button type="submit" id="addtrainerbtnId">Add</button>
+            </form>
+          </div>
+
+        <script>
+            let addTrainerForm = document.querySelector('#addTrainerForm');
+            addTrainerForm.addEventListener('submit', handleSubmit);
+    
+            function handleSubmit(e){
+    
+                e.preventDefault();
+                let firstName = document.querySelector("#addTrainerFirstName").value;
+                let lastName = document.querySelector("#addTrainerLastName").value;
+                let subject = document.querySelector("#addTrainerSubject").value;
+                let newTrainer = `<td>${firstName}</td><td>${lastName}</td><td>${subject}</td>`;
+
+                localStorage.setItem('action_triggered', 'add');
+                localStorage.setItem('new_trainer', newTrainer);
+                window.document.location = '../tables/trainers.html';
+
+            }
+        </script>
+
+</body>
+</html>

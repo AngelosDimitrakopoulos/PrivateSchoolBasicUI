@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Assignment</title>
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <header class="forms-header">
+        <div class="container">
+            <h1>ADD ASSIGNMENT</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-forms">
+        <div class="container">
+            <ul>
+                <li class="navitem"><a href="../tables/assignments.html">Back</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+        <div>
+            <form id="addAssignmentForm" class="forms" name="assignmentForm">
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Title: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="(J|C#|JS|P)(FT|PT)\s(Assignment|Project)\s([0-9]{1})" id="addAssignmentTitle" type="text" placeholder="eg. JFT Assignment 1..."/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Description: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required id="addAssignmentDescription" type="text" placeholder="eg. First Full Time Java Assignment..."/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Submission DateTime: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required id="addAssignmentSubmissionDateTime" type="datetime-local"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Oral Mark: </label>
+                    </div>
+                    <div id="oralmarkaddassignment" class="form-value">
+                        <input required pattern="(\.\.|[0-9]{2})(/20)" id="addAssignmentOralMark" type="text" placeholder="eg. ../20"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Total Mark: </label>
+                    </div>
+                    <div id="totalmarkaddassignment" class="form-value">
+                        <input required pattern="(\.\.|[0-9]{2,3})(/100)" id="addAssignmentTotalMark" type="text" placeholder="eg. ../100"/>
+                    </div>
+                </div>
+                
+                <button type="submit" id="addassignmentbtnId">Add</button>
+            </form>
+          </div>
+ 
+          <script>
+            let addAssignmentForm = document.querySelector('#addAssignmentForm');
+            addAssignmentForm.addEventListener('submit', handleSubmit);
+    
+            function handleSubmit(e){
+    
+                e.preventDefault();
+                let title = document.querySelector("#addAssignmentTitle").value;
+                let description = document.querySelector("#addAssignmentDescription").value;
+                let submissionDateTime = document.querySelector("#addAssignmentSubmissionDateTime").value;
+                let oralMark = document.querySelector("#addAssignmentOralMark").value;
+                let totalMark = document.querySelector("#addAssignmentTotalMark").value;
+                let newAssignment = `<td>${title}</td><td>${description}</td><td>${submissionDateTime}</td><td>${oralMark}</td><td>${totalMark}</td>`;
+
+                localStorage.setItem('action_triggered', 'add');
+                localStorage.setItem('new_assignment', newAssignment);
+                window.document.location = '../tables/assignments.html';
+
+            }
+        </script>
+</body>
+</html>

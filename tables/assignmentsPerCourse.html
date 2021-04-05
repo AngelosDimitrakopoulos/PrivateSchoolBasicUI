@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding School | Assignments per Course</title>
+    <link rel="stylesheet" href="../css/tables.css">
+</head>
+<body>
+    <header class="tables-header">
+        <div class="container">
+            <h1>ASSIGNMENTS per COURSE</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-tables">
+        <ul>
+            <li class="navitem"><a href="../index.html">Home</a></li>
+            <li class="navitem"><a href="../forms/addAssignmentsPerCourse.html">Add Assignment per Course</a></li>
+            <li class="navitem"><a href="../forms/editAssignmentsPerCourse.html">Edit Assignment Per Course</a></li>
+            <li class="navitem"><a href="../forms/updateAssignmentsPerCourse.html">Update Assignment Per Course</a></li>
+        </ul>
+    </nav>
+
+    <label class="courseForPerCourseLabel" for="courseForPerCourse">Choose a Course:</label>
+    <select name="course" class="courseForPerCourse">
+        <option value="" selected disabled hidden>--Please choose a Course--</option>
+        <option value="CB8 Java Full Time">CB8 Java Full Time</option>
+        <option value="CB8 Java Part Time">CB8 Java Part Time</option>
+        <option value="CB8 C# Full Time">CB8 C# Full Time</option>
+        <option value="CB8 C# Part Time">CB8 C# Part Time</option>
+    </select>
+
+    <section class="tables-main">
+        <table class="tables" id="assignmentsPerCourseTable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Submission DateTime</th>
+                    <th>Oral Mark</th>
+                    <th>Total Mark</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="editFirstAssignmentPerCourse">
+                    <td>JFT Assignment 1</td>
+                    <td>First Full Time Java Assignment</td>
+                    <td>2019-01-15T23:59</td>
+                    <td>../20</td>
+                    <td>../100</td>
+                    <td>CB8 Java Full Time</td>
+                </tr>
+                <tr id="updateSecondAssignmentPerCourse">
+                    <td>JFT Assignment 2</td>
+                    <td>Second Full Time Java Assignment</td>
+                    <td>2019-01-29T23:59</td>
+                    <td>../20</td>
+                    <td>../100</td>
+                    <td>CB8 Java Full Time</td>
+                </tr>
+                <tr>
+                    <td>JFT Assignment 3</td>
+                    <td>Third Full Time Java Assignment</td>
+                    <td>2019-02-12T23:59</td>
+                    <td>../20</td>
+                    <td>../100</td>
+                    <td>CB8 Java Full Time</td>
+                </tr>
+                <tr>
+                    <td>JFT Assignment 4</td>
+                    <td>Fourth Full Time Java Assignment</td>
+                    <td>2019-02-26T23:59</td>
+                    <td>../20</td>
+                    <td>../100</td>
+                    <td>CB8 Java Full Time</td>
+                </tr>
+                <tr>
+                    <td>JFT Assignment 5</td>
+                    <td>Fifth Full Time Java Assignment</td>
+                    <td>2019-03-13T23:59</td>
+                    <td>../20</td>
+                    <td>../100</td>
+                    <td>CB8 Java Full Time</td>
+                </tr>
+                <tr>
+                    <td>JFT Project 1</td>
+                    <td>Individual Full Time Java Project</td>
+                    <td>2019-02-15T23:59</td>
+                    <td>../20</td>
+                    <td>../100</td>
+                    <td>CB8 Java Full Time</td>
+                </tr>
+                <tr>
+                    <td>JFT Project 2</td>
+                    <td>Team Full Time Java Project</td>
+                    <td>2019-03-29T23:59</td>
+                    <td>../20</td>
+                    <td>../100</td>
+                    <td>CB8 Java Full Time</td>
+                </tr>
+                
+            </tbody>
+        </table>
+        
+    </section>
+
+    <script>
+        let actionTriggered = localStorage.getItem('action_triggered');
+        if(actionTriggered === 'add') {
+            // Inserts new assignmentPerCourse in assignmentsPerCourse table 
+            // (adds one new assignmentPerCourse but removes it if we add another one)
+            let assignmentsPerCourseTable = document.querySelector("#assignmentsPerCourseTable tbody");
+            let newAssignmentPerCourse = localStorage.getItem('new_assignmentPerCourse');
+            // assignmentsPerCourseTable.innerHTML += newAssignmentPerCourse;
+        }else if (actionTriggered === 'edit') {
+            // Edits the first assignmentPerCourse 
+            // (we should insert a dropdown menu and select which assignmentPerCourse to edit
+            // or put edit next to every existing assignmentPerCourse and select this way the assignmentPerCourse to edit)
+            let assignmentsPerCourseTable = document.querySelector("#assignmentsPerCourseTable tbody");
+            let newAssignmentPerCourse = localStorage.getItem('new_assignmentPerCourse');
+            document.querySelector('#editFirstAssignmentPerCourse').innerHTML = newAssignmentPerCourse;
+        } else {
+            // Updates the second student 
+            // (we should insert a dropdown menu and select which assignmentPerCourse to update
+            // or put update next to every existing assignmentPerCourse and select this way the assignmentPerCourse to update)
+            let assignmentsPerCourseTable = document.querySelector("#assignmentsPerCourseTable tbody");
+            let newAssignmentPerCourse = localStorage.getItem('new_assignmentPerCourse');
+            document.querySelector('#updateSecondAssignmentPerCourse').innerHTML = newAssignmentPerCourse;
+        }
+    </script>
+</body>
+</html>

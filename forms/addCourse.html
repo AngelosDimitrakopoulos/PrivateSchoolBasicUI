@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Course</title>
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <header class="forms-header">
+        <div class="container">
+            <h1>ADD COURSE</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-forms">
+        <ul>
+            <li class="navitem"><a href="../tables/courses.html">Back</a></li>
+        </ul>
+    </nav>
+    
+    <div>
+        <form id="addCourseForm" class="forms" name="courseForm">
+            <div class="form-text">
+                <div class="form-label">
+                    <label>Title: </label>
+                </div>
+                <div class="form-value">
+                    <input required pattern="(CB)(\d{1,2})" id="addCourseTitle" type="text" placeholder="CB_ / CB_ _"/>
+                </div> 
+            </div>
+
+            <div class="form-text">
+                <div class="form-label">
+                    <label>Stream: </label>
+                </div>
+                <div class="form-value">
+                    <select id="addCourseStream" style="height: 30px; width: 40%;">
+                        <option value="Java">Java</option>
+                        <option value="C#">C#</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Python">Python</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-text">
+                <div class="form-label">
+                    <label>Type: </label>
+                </div>
+                <div class="form-value">
+                    <select id="addCourseType" style="height: 30px; width: 40%;">
+                        <option value="Full Time">Full Time</option>
+                        <option value="Part Time">Part Time</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-text">
+                <div class="form-label">
+                    <label>Start Date: </label>
+                </div>
+                <div id="startdateaddcourse" class="form-value">
+                    <input required id="addCourseStartDate" type="date"/>
+                </div>
+            </div>
+
+            <div class="form-text">
+                <div class="form-label">
+                    <label>End Date: </label>
+                </div>
+                <div id="enddateaddcourse" class="form-value">
+                    <input required id="addCourseEndDate" type="date"/>
+                </div>
+                <div class="errors" id="errorCourseDates"></div> 
+            </div>
+            
+            <button type="submit" id="addcoursebtnId">Add</button>
+        </form>
+      </div>
+
+    <script>
+        let addCourseForm = document.querySelector('#addCourseForm');
+        addCourseForm.addEventListener('submit', handleSubmit);
+        const errorCourseDates = document.querySelector('#errorCourseDates');
+
+        function handleSubmit(e){
+
+            e.preventDefault();
+            let title = document.querySelector("#addCourseTitle").value;
+            let stream = document.querySelector("#addCourseStream").value;
+            let type = document.querySelector("#addCourseType").value;
+            let startDate = document.querySelector("#addCourseStartDate").value;
+            let endDate = document.querySelector("#addCourseEndDate").value;
+            let newCourse = `<td>${title}</td><td>${stream}</td><td>${type}</td><td>${startDate}</td><td>${endDate}</td>`;
+
+            if(startDate>=endDate){
+                e.preventDefault();
+                errorCourseDates.innerText = 'invalid dates';
+            } else{
+                e.preventDefault();
+                localStorage.setItem('action_triggered', 'add');
+                localStorage.setItem('new_course', newCourse);
+                window.document.location = '../tables/courses.html';
+            }
+
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding School | Students</title>
+    <link rel="stylesheet" href="../css/tables.css">
+</head>
+<body>
+    <header class="tables-header">
+        <div class="container">
+            <h1>STUDENTS</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-tables">
+        <ul>
+            <li class="navitem"><a href="../index.html">Home</a></li>
+            <li class="navitem"><a href="../forms/addStudent.html">Add Student</a></li>
+            <li class="navitem"><a href="../forms/editStudent.html">Edit Student</a></li>
+            <li class="navitem"><a href="../forms/updateStudent.html">Update Student</a></li>
+        </ul>
+    </nav>
+
+    <section class="tables-main">
+        <table id="studentsTable" class="tables">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date Of Birth</th>
+                    <th>Tuition Fees</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="editFirstStudent">
+                    <td>Angelos</td>
+                    <td>Dimitrakopoulos</td>
+                    <td>1985-06-02</td>
+                    <td>2500</td>
+                </tr>
+                <tr id="updateSecondStudent">
+                    <td>Iosif</td>
+                    <td>Argiropoulos</td>
+                    <td>1990-05-04</td>
+                    <td>2500</td>
+                </tr>
+                <tr>
+                    <td>Eleni</td>
+                    <td>Logara</td>
+                    <td>1983-11-04</td>
+                    <td>2000</td>
+                </tr>
+                <tr>
+                    <td>Alexandros</td>
+                    <td>Kontos</td>
+                    <td>1989-10-15</td>
+                    <td>2500</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </section>
+    
+    <script>
+        let actionTriggered = localStorage.getItem('action_triggered');
+        if(actionTriggered === 'add') {
+            // Inserts new student in students table 
+            // (adds one new student but removes it if we add another one)
+            let studentsTable = document.querySelector("#studentsTable tbody");
+            let newStudent = localStorage.getItem('new_student');
+            // studentsTable.innerHTML += newStudent;
+        }else if (actionTriggered === 'edit') {
+            // Edits the first student 
+            // (we should insert a dropdown menu and select which student to edit
+            // or put edit next to every existing student and select this way the student to edit)
+            let studentsTable = document.querySelector("#studentsTable tbody");
+            let newStudent = localStorage.getItem('new_student');
+            document.querySelector('#editFirstStudent').innerHTML = newStudent;
+        } else {
+            // Updates the second student 
+            // (we should insert a dropdown menu and select which student to update
+            // or put update next to every existing student and select this way the student to update)
+            let studentsTable = document.querySelector("#studentsTable tbody");
+            let newStudent = localStorage.getItem('new_student');
+            document.querySelector('#updateSecondStudent').innerHTML = newStudent;
+        }
+    </script>
+</body>
+</html>

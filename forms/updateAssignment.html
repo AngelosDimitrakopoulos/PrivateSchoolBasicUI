@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Assignment</title>
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <header class="forms-header">
+        <div class="container">
+            <h1>UPDATE ASSIGNMENT</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-forms">
+        <div class="container">
+            <ul>
+                <li class="navitem"><a href="../tables/assignments.html">Back</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+        <div>
+            <form id="updateAssignmentForm" class="forms" name="assignmentForm">
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Title: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="(J|C#|JS|P)(FT|PT)\s(Assignment|Project)\s([0-9]{1})" id="updateAssignmentTitle" type="text" value="JFT Assignment 2"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Description: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required id="updateAssignmentDescription" type="text" value="Second Full Time Java Assignment"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Submission DateTime: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required id="updateAssignmentSubmissionDateTime" type="datetime-local" value="2019-01-29T23:59"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Oral Mark: </label>
+                    </div>
+                    <div id="oralmarkupdateassignment" class="form-value">
+                        <input required pattern="(\.\.|[0-9]{2})(/20)" id="updateAssignmentOralMark" type="text" value="../20"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Total Mark: </label>
+                    </div>
+                    <div id="totalmarkupdateassignment" class="form-value">
+                        <input required pattern="(\.\.|[0-9]{2,3})(/100)" id="updateAssignmentTotalMark" type="text" value="../100"/>
+                    </div>
+                </div>
+                
+                <button type="submit" id="updateassignmentbtnId">Confirm</button>
+            </form>
+          </div>
+ 
+        <script>
+            let updateAssignmentForm = document.querySelector('#updateAssignmentForm');
+            updateAssignmentForm.addEventListener('submit', handleSubmit);
+    
+            function handleSubmit(e){
+    
+                e.preventDefault();
+                let title = document.querySelector("#updateAssignmentTitle").value;
+                let description = document.querySelector("#updateAssignmentDescription").value;
+                let submissionDateTime = document.querySelector("#updateAssignmentSubmissionDateTime").value;
+                let oralMark = document.querySelector("#updateAssignmentOralMark").value;
+                let totalMark = document.querySelector("#updateAssignmentTotalMark").value;
+                let newAssignment = `<td>${title}</td><td>${description}</td><td>${submissionDateTime}</td><td>${oralMark}</td><td>${totalMark}</td>`;
+
+                localStorage.setItem('action_triggered', 'update');
+                localStorage.setItem('new_assignment', newAssignment);
+                window.document.location = '../tables/assignments.html';
+
+            }
+        </script>
+</body>
+</html>

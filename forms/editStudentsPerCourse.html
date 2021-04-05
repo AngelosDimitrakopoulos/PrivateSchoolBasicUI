@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student per Course</title>
+    <link rel="stylesheet" href="../css/forms.css">
+
+</head>
+<body>
+    <header class="forms-header">
+        <div class="container">
+            <h1>EDIT STUDENT per COURSE</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-forms">
+        <div class="container">
+            <ul>
+                <li class="navitem"><a href="../tables/studentsperCourse.html">Back</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- <label class="courseForPerCourseLabel" for="courseForPerCourse">Edit Student from Course:</label>
+    <select name="course" class="courseForPerCourse">
+        <option value="" selected disabled hidden>--Please choose a Course--</option>
+        <option value="CB8 Java Full Time">CB8 Java Full Time</option>
+        <option value="CB8 Java Part Time">CB8 Java Part Time</option>
+        <option value="CB8 C# Full Time">CB8 C# Full Time</option>
+        <option value="CB8 C# Part Time">CB8 C# Part Time</option>
+    </select> -->
+
+
+        <div>
+            <form id="editStudentPerCourseForm" class="forms" name="studentForm">
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>First Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="editStudentPerCourseFirstName" type="text" value="Angelos"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Last Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="editStudentPerCourseLastName" type="text" value="Dimitrakopoulos"/>
+                    </div>
+                </div>
+
+               
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Date of Birth: </label>
+                    </div>
+                    <div id="dateofbirtheditstudentpercourse" class="form-value">
+                        <input required id="editStudentPerCourseDate" type="date" value="1985-02-06"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Tuition Fees: </label>
+                    </div>
+                    <div id="editstudentpercoursetf" class="form-value">
+                        <input required pattern="[0-9]{4}" id="editStudentPerCourseFees" type="text" value="2500"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Course: </label>
+                    </div>
+                    <div class="form-value">
+                        <select id="courseeditstudentpercourse" style="height: 30px; width: 40%;">
+                            <option selected="selected" value="CB8 Java Full Time">CB8 Java Full Time</option>
+                            <option value="CB8 Java Part Time">CB8 Java Part Time</option>
+                            <option value="CB8 C# Full Time">CB8 C# Full Time</option>
+                            <option value="CB8 C# Part Time">CB8 C# Part Time</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" id="editstudentpercoursebtnId">Save</button>
+            </form>
+          </div>
+ 
+          <script>
+            let editStudentPerCourseForm = document.querySelector('#editStudentPerCourseForm');
+            editStudentPerCourseForm.addEventListener('submit', handleSubmit);
+    
+            function handleSubmit(e){
+    
+                e.preventDefault();
+                let firstName = document.querySelector("#editStudentPerCourseFirstName").value;
+                let lastName = document.querySelector("#editStudentPerCourseLastName").value;
+                let date = document.querySelector("#editStudentPerCourseDate").value;
+                let fees = document.querySelector("#editStudentPerCourseFees").value;
+                let course = document.querySelector("#courseeditstudentpercourse").value;
+                let newStudentPerCourse = `<td>${firstName}</td><td>${lastName}</td><td>${date}</td><td>${fees}</td><td>${course}</td>`;
+
+                localStorage.setItem('action_triggered', 'edit');
+                localStorage.setItem('new_studentPerCourse', newStudentPerCourse);
+                window.document.location = '../tables/studentsPerCourse.html';
+
+            }
+        </script>
+</body>
+</html>

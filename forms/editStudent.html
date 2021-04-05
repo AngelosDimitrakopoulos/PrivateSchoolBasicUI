@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <header class="forms-header">
+        <div class="container">
+            <h1>EDIT STUDENT</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-forms">
+        <div class="container">
+            <ul>
+                <li class="navitem"><a href="../tables/students.html">Back</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+        <div>
+            <form id="editStudentForm" class="forms" name="studentForm">
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>First Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="editStudentFirstName" type="text" value="Angelos"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Last Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="editStudentLastName" type="text" value="Dimitrakopoulos"/>
+                    </div>
+                </div>
+
+               
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Date of Birth: </label>
+                    </div>
+                    <div id="dateofbirtheditstudent" class="form-value">
+                        <input required id="editStudentDate" type="date" value="1985-02-06"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Tuition Fees: </label>
+                    </div>
+                    <div id="editstudenttf" class="form-value">
+                        <input required pattern="[0-9]{4}" id="editStudentFees" type="text" value="2500"/>
+                    </div>
+                </div>
+                
+                <button type="submit" id="editstudentbtnId">Save</button>
+            </form>
+          </div>
+ 
+          <script>
+            let editStudentForm = document.querySelector('#editStudentForm');
+            editStudentForm.addEventListener('submit', handleSubmit);
+    
+            function handleSubmit(e){
+    
+                e.preventDefault();
+                let firstName = document.querySelector("#editStudentFirstName").value;
+                let lastName = document.querySelector("#editStudentLastName").value;
+                let date = document.querySelector("#editStudentDate").value;
+                let fees = document.querySelector("#editStudentFees").value;
+                let newStudent = `<td>${firstName}</td><td>${lastName}</td><td>${date}</td><td>${fees}</td>`;
+
+                localStorage.setItem('action_triggered', 'edit');
+                localStorage.setItem('new_student', newStudent);
+                window.document.location = '../tables/students.html';
+
+            }
+        </script>
+</body>
+</html>

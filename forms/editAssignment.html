@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Assignment</title>
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <header class="forms-header">
+        <div class="container">
+            <h1>EDIT ASSIGNMENT</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-forms">
+        <div class="container">
+            <ul>
+                <li class="navitem"><a href="../tables/assignments.html">Back</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+        <div>
+            <form id="editAssignmentForm" class="forms" name="assignmentForm">
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Title: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="(J|C#|JS|P)(FT|PT)\s(Assignment|Project)\s([0-9]{1})" id="editAssignmentTitle" type="text" value="JFT Assignment 1"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Description: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required id="editAssignmentDescription" type="text" value="First Full Time Java Assignment"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Submission DateTime: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required id="editAssignmentSubmissionDateTime" type="datetime-local" value="2019-01-15T23:59"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Oral Mark: </label>
+                    </div>
+                    <div id="oralmarkeditassignment" class="form-value">
+                        <input required pattern="(\.\.|[0-9]{2})(/20)" id="editAssignmentOralMark" type="text" value="../20"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Total Mark: </label>
+                    </div>
+                    <div id="totalmarkeditassignment" class="form-value">
+                        <input required pattern="(\.\.|[0-9]{2,3})(/100)" id="editAssignmentTotalMark" type="text" value="../100"/>
+                    </div>
+                </div>
+                
+                <button type="submit" id="editassignmentbtnId">Save</button>
+            </form>
+          </div>
+ 
+        <script>
+            let editAssignmentForm = document.querySelector('#editAssignmentForm');
+            editAssignmentForm.addEventListener('submit', handleSubmit);
+    
+            function handleSubmit(e){
+    
+                e.preventDefault();
+                let title = document.querySelector("#editAssignmentTitle").value;
+                let description = document.querySelector("#editAssignmentDescription").value;
+                let submissionDateTime = document.querySelector("#editAssignmentSubmissionDateTime").value;
+                let oralMark = document.querySelector("#editAssignmentOralMark").value;
+                let totalMark = document.querySelector("#editAssignmentTotalMark").value;
+                let newAssignment = `<td>${title}</td><td>${description}</td><td>${submissionDateTime}</td><td>${oralMark}</td><td>${totalMark}</td>`;
+
+                localStorage.setItem('action_triggered', 'edit');
+                localStorage.setItem('new_assignment', newAssignment);
+                window.document.location = '../tables/assignments.html';
+
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding School | Students per Course</title>
+    <link rel="stylesheet" href="../css/tables.css">
+</head>
+<body>
+    <header class="tables-header">
+        <div class="container">
+            <h1>STUDENTS per COURSE</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-tables">
+        <ul>
+            <li class="navitem"><a href="../index.html">Home</a></li>
+            <li class="navitem"><a href="../forms/addStudentsPerCourse.html">Add Student per Course</a></li>
+            <li class="navitem"><a href="../forms/editStudentsPerCourse.html">Edit Student Per Course</a></li>
+            <li class="navitem"><a href="../forms/updateStudentsPerCourse.html">Update Student Per Course</a></li>
+        </ul>
+    </nav>
+
+    <label class="courseForPerCourseLabel" for="courseForPerCourse">Choose a Course:</label>
+    <!-- to handle selection in dropdown meu I should use onchange="" -->
+    <select id="selectCourseSPC" name="course" class="courseForPerCourse">
+        <option value="" selected disabled hidden>--Please choose a Course--</option>
+        <option id="cb8jft" value="CB8 Java Full Time">CB8 Java Full Time</option>
+        <option id="cb8jpt" value="CB8 Java Part Time">CB8 Java Part Time</option>
+        <option id="cb8cft" value="CB8 C# Full Time">CB8 C# Full Time</option>
+        <option id="cb8cpt" value="CB8 C# Part Time">CB8 C# Part Time</option>
+    </select>
+
+    <section class="tables-main">
+        <table id="studentsPerCourseTable" class="tables">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date Of Birth</th>
+                    <th>Tuition Fees</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="editFirstStudentPerCourse">
+                    <td>Angelos</td>
+                    <td>Dimitrakopoulos</td>
+                    <td>1985-06-02</td>
+                    <td>2500</td>
+                    <td class="spcCourseName">CB8 Java Full Time</td>
+                </tr>
+                <tr id="updateSecondStudentPerCourse">
+                    <td>Iosif</td>
+                    <td>Argiropoulos</td>
+                    <td>1990-05-04</td>
+                    <td>2500</td>
+                    <td class="spcCourseName">CB8 C# Part Time</td>
+                </tr>
+                <tr>
+                    <td>Eleni</td>
+                    <td>Logara</td>
+                    <td>1983-11-04</td>
+                    <td>2000</td>
+                    <td class="spcCourseName">CB8 Java Full Time</td>
+                </tr>
+                <tr>
+                    <td>Alexandros</td>
+                    <td>Kontos</td>
+                    <td>1989-10-15</td>
+                    <td>2500</td>
+                    <td class="spcCourseName">CB8 Java Part Time</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </section>
+    
+    <script>
+        // NOT SUCCESSFUL DROPDOWN MENU HANDLING
+
+        // const course = document.querySelector('tr');
+        // const attrList = document.querySelectorAll('.spcCourseName');
+        // const attributesList = Array.prototype.slice.call(attrList);
+        // const crsList = document.querySelectorAll('tr'); //returns nodelist
+        // const coursesList = Array.prototype.slice.call(crsList); //converts nodelist to array
+        // console.log(course);
+
+        // function showStudents(){
+        //     let choice = document.getElementById('selectCourseSPC').value;
+        //     console.log("choice = " + choice);
+            
+        //     console.log(coursesList);
+        //     function isDisplayedCB8JFT(course){
+        //         if(choice != Array.from(document.querySelector('spcCourseName'))[i]){
+        //             course.style.display = "none";
+        //         }
+        //     }
+        //     for(let i=1; i<coursesList.length; i++){
+        //         isDisplayedCB8JPT(coursesList[i]);
+        //     }
+        //     function isDisplayedCB8JPT(course){
+        //         if(choice == document.querySelector('#spcCourseName')){
+        //             course.style.display = "";
+        //         } else {
+        //             course.style.display = "none";
+        //         }
+        //     }
+        //     for(let i=1; i<coursesList.length; i++){
+        //         isDisplayedCB8JPT(coursesList[i]);
+        //     }
+        //     function isDisplayedCB8CFT(course){
+        //         if(choice == document.querySelector('#spcCourseName')){
+        //             course.style.display = "";
+        //         } else {
+        //             course.style.display = "none";
+        //         }
+        //     }
+        //     for(let i=1; i<coursesList.length; i++){
+        //         isDisplayedCB8CFT(coursesList[i]);
+        //     }
+        //     function isDisplayedCB8CPT(course){
+        //         if(choice == document.querySelector('#spcCourseName')){
+        //             course.style.display = "";
+        //         } else {
+        //             course.style.display = "none";
+        //         }
+        //     }
+        //     for(let i=1; i<coursesList.length; i++){
+        //         isDisplayedCB8CPT(coursesList[i]);
+        //     }
+        // }
+        
+        let actionTriggered = localStorage.getItem('action_triggered');
+        if(actionTriggered === 'add') {
+            // Inserts new studentPerCourse in studentsPerCourse table 
+            // (adds one new studentPerCourse but removes it if we add another one)
+            let studentsPerCourseTable = document.querySelector("#studentsPerCourseTable tbody");
+            let newStudentPerCourse = localStorage.getItem('new_studentPerCourse');
+            // studentsPerCourseTable.innerHTML += newStudentPerCourse;
+        }else if (actionTriggered === 'edit') {
+            // Edits the first studentPerCourse 
+            // (we should insert a dropdown menu and select which studentPerCourse to edit
+            // or put edit next to every existing studentPerCourse and select this way the studentPerCourse to edit)
+            let studentsPerCourseTable = document.querySelector("#studentsPerCourseTable tbody");
+            let newStudentPerCourse = localStorage.getItem('new_studentPerCourse');
+            document.querySelector('#editFirstStudentPerCourse').innerHTML = newStudentPerCourse;
+        } else {
+            // Updates the second student 
+            // (we should insert a dropdown menu and select which studentPerCourse to update
+            // or put update next to every existing studentPerCourse and select this way the studentPerCourse to update)
+            let studentsPerCourseTable = document.querySelector("#studentsPerCourseTable tbody");
+            let newStudentPerCourse = localStorage.getItem('new_studentPerCourse');
+            document.querySelector('#updateSecondStudentPerCourse').innerHTML = newStudentPerCourse;
+        }
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding School | Courses</title>
+    <link rel="stylesheet" href="../css/tables.css">
+</head>
+<body>
+    <header class="tables-header">
+        <div class="container">
+            <h1>COURSES</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-tables">
+        <ul>
+            <li class="navitem"><a href="../index.html">Home</a></li>
+            <li class="navitem"><a href="../forms/addCourse.html">Add Course</a></li>
+            <li class="navitem"><a href="../forms/editCourse.html">Edit Course</a></li>
+            <li class="navitem"><a href="../forms/updateCourse.html">Update Course</a></li>
+        </ul>
+    </nav>
+
+    <section class="tables-main">
+        <table id="coursesTable" class="tables">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Stream</th>
+                    <th>Type</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="editFirstCourse">
+                    <td>CB8</td>
+                    <td>Java</td>
+                    <td>Full Time</td>
+                    <td>2019-01-01</td>
+                    <td>2019-03-31</td>
+                </tr>
+                <tr id="updateSecondCourse">
+                    <td>CB8</td>
+                    <td>Java</td>
+                    <td>Part Time</td>
+                    <td>2019-01-01</td>
+                    <td>2019-06-30</td>
+                </tr>
+                <tr>
+                    <td>CB8</td>
+                    <td>C#</td>
+                    <td>Full Time</td>
+                    <td>2019-01-01</td>
+                    <td>2019-03-31</td>
+                </tr>
+                <tr>
+                    <td>CB8</td>
+                    <td>C#</td>
+                    <td>Part Time</td>
+                    <td>2019-01-01</td>
+                    <td>2019-06-30</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </section>
+    
+    <script>
+           let actionTriggered = localStorage.getItem('action_triggered');
+        if(actionTriggered === 'add') {
+            // Inserts new course in courses table 
+            // (adds one new course but removes it if we add another one)
+            let coursesTable = document.querySelector("#coursesTable tbody");
+            let newCourse = localStorage.getItem('new_course');
+            // coursesTable.innerHTML += newCourse;
+        } else if (actionTriggered === 'edit') {
+            // Edits the first course 
+            // (we should insert a dropdown menu and select which course to edit
+            // or put edit next to every existing course and select this way the course to edit)
+            let coursesTable = document.querySelector("#coursesTable tbody");
+            let newCourse = localStorage.getItem('new_course');
+            document.querySelector('#editFirstCourse').innerHTML = newCourse;
+        } else {
+            // Updates the second course 
+            // (we should insert a dropdown menu and select which course to update
+            // or put update next to every existing course and select this way the course to update)
+            let coursesTable = document.querySelector("#coursesTable tbody");
+            let newCourse = localStorage.getItem('new_course');
+            document.querySelector('#updateSecondCourse').innerHTML = newCourse;
+        }
+    </script>
+</body>
+</html>

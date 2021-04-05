@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Student per Course</title>
+    <link rel="stylesheet" href="../css/forms.css">
+
+</head>
+<body>
+    <header class="forms-header">
+        <div class="container">
+            <h1>UPDATE STUDENT per COURSE</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-forms">
+        <div class="container">
+            <ul>
+                <li class="navitem"><a href="../tables/studentsperCourse.html">Back</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- <label class="courseForPerCourseLabel" for="courseForPerCourse">Edit Student from Course:</label>
+    <select name="course" class="courseForPerCourse">
+        <option value="" selected disabled hidden>--Please choose a Course--</option>
+        <option value="CB8 Java Full Time">CB8 Java Full Time</option>
+        <option value="CB8 Java Part Time">CB8 Java Part Time</option>
+        <option value="CB8 C# Full Time">CB8 C# Full Time</option>
+        <option value="CB8 C# Part Time">CB8 C# Part Time</option>
+    </select> -->
+
+
+        <div>
+            <form id="updateStudentPerCourseForm" class="forms" name="studentsPerCourseForm">
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>First Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="updateStudentPerCourseFirstName" type="text" value="Iosif"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Last Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="updateStudentPerCourseLastName" type="text" value="Argiropoulos"/>
+                    </div>
+                </div>
+
+               
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Date of Birth: </label>
+                    </div>
+                    <div id="dateofbirthupdatestudentpercourse" class="form-value">
+                        <input required id="updateStudentPerCourseDate" type="date" value="1990-05-04"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Tuition Fees: </label>
+                    </div>
+                    <div id="updatestudentpercoursetf" class="form-value">
+                        <input required pattern="[0-9]{4}" id="updateStudentPerCourseFees" type="text" value="2500"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Course: </label>
+                    </div>
+                    <div class="form-value">
+                        <select id="courseupdatestudentpercourse" style="height: 30px; width: 40%;">
+                            <option value="CB8 Java Full Time">CB8 Java Full Time</option>
+                            <option selected="selected" value="CB8 Java Part Time">CB8 Java Part Time</option>
+                            <option value="CB8 C# Full Time">CB8 C# Full Time</option>
+                            <option value="CB8 C# Part Time">CB8 C# Part Time</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" id="updatestudentpercoursebtnId">Confirm</button>
+            </form>
+          </div>
+ 
+          <script>
+            let updateStudentPerCourseForm = document.querySelector('#updateStudentPerCourseForm');
+            updateStudentPerCourseForm.addEventListener('submit', handleSubmit);
+    
+            function handleSubmit(e){
+    
+                e.preventDefault();
+                let firstName = document.querySelector("#updateStudentPerCourseFirstName").value;
+                let lastName = document.querySelector("#updateStudentPerCourseLastName").value;
+                let date = document.querySelector("#updateStudentPerCourseDate").value;
+                let fees = document.querySelector("#updateStudentPerCourseFees").value;
+                let course = document.querySelector("#courseupdatestudentpercourse").value;
+                let newStudentPerCourse = `<td>${firstName}</td><td>${lastName}</td><td>${date}</td><td>${fees}</td><td>${course}</td>`;
+
+                localStorage.setItem('action_triggered', 'update');
+                localStorage.setItem('new_studentPerCourse', newStudentPerCourse);
+                window.document.location = '../tables/studentsPerCourse.html';
+
+            }
+        </script>
+</body>
+</html>

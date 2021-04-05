@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <header class="forms-header">
+        <div class="container">
+            <h1>ADD STUDENT</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-forms">
+        <div class="container">
+            <ul>
+                <li class="navitem"><a href="../tables/students.html">Back</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+        <div>
+            <form id="addStudentForm" class="forms" name="studentForm">
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>First Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="addStudentFirstName" type="text" placeholder="first name..."/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Last Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="addStudentLastName" type="text" placeholder="last name..."/>
+                    </div>
+                </div>
+
+               
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Date of Birth: </label>
+                    </div>
+                    <div id="dateofbirthaddstudent" class="form-value">
+                        <input required id="addStudentDate" type="date"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Tuition Fees: </label>
+                    </div>
+                    <div id="addstudenttf" class="form-value">
+                        <input required pattern="[0-9]{4}" id="addStudentFees" type="text" placeholder="4 digit value..."/>
+                    </div>
+                </div>
+                
+                <button type="submit" id="addstudentbtnId">Add</button>
+            </form>
+          </div>
+ 
+          <script>
+            let addStudentForm = document.querySelector('#addStudentForm');
+            addStudentForm.addEventListener('submit', handleSubmit);
+    
+            function handleSubmit(e){
+    
+                e.preventDefault();
+                let firstName = document.querySelector("#addStudentFirstName").value;
+                let lastName = document.querySelector("#addStudentLastName").value;
+                let date = document.querySelector("#addStudentDate").value;
+                let fees = document.querySelector("#addStudentFees").value;
+                let newStudent = `<td>${firstName}</td><td>${lastName}</td><td>${date}</td><td>${fees}</td>`;
+
+                localStorage.setItem('action_triggered', 'add');
+                localStorage.setItem('new_student', newStudent);
+                window.document.location = '../tables/students.html';
+
+            }
+        </script>
+</body>
+</html>

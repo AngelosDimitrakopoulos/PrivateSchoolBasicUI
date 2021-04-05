@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding School | Trainers per Course</title>
+    <link rel="stylesheet" href="../css/tables.css">
+</head>
+<body>
+    <header class="tables-header">
+        <div class="container">
+            <h1>TRAINERS per COURSE</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-tables">
+        <ul>
+            <li class="navitem"><a href="../index.html">Home</a></li>
+            <li class="navitem"><a href="../forms/addTrainersPerCourse.html">Add Trainer per Course</a></li>
+            <li class="navitem"><a href="../forms/editTrainersPerCourse.html">Edit Trainer Per Course</a></li>
+            <li class="navitem"><a href="../forms/updateTrainersPerCourse.html">Update Trainer Per Course</a></li>
+        </ul>
+    </nav>
+
+    <label class="courseForPerCourseLabel" for="courseForPerCourse">Choose a Course:</label>
+    <select name="course" class="courseForPerCourse">
+        <option value="" selected disabled hidden>--Please choose a Course--</option>
+        <option value="CB8 Java Full Time">CB8 Java Full Time</option>
+        <option value="CB8 Java Part Time">CB8 Java Part Time</option>
+        <option value="CB8 C# Full Time">CB8 C# Full Time</option>
+        <option value="CB8 C# Part Time">CB8 C# Part Time</option>
+    </select>
+
+
+    <section class="tables-main">
+        <table  id="trainersPerCourseTable" class="tables">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Subject</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="editFirstTrainerPerCourse">
+                    <td>Anestis</td>
+                    <td>Sotiriou</td>
+                    <td>Front End</td>
+                    <td class="tpcCourseName">CB8 Java Full Time</td>
+                </tr>
+                <tr id="updateSecondTrainerPerCourse">
+                    <td>Ioannis</td>
+                    <td>Euaggelopoulos</td>
+                    <td>Back End</td>
+                    <td class="tpcCourseName">CB8 Java Part Time</td>
+                </tr>
+                <tr>
+                    <td>Aristeidis</td>
+                    <td>Tzoumas</td>
+                    <td>Databases</td>
+                    <td class="tpcCourseName">CB8 C# Full Time</td>
+                </tr>
+                
+            </tbody>
+        </table>
+        
+    </section>
+
+    <script>
+        let actionTriggered = localStorage.getItem('action_triggered');
+        if(actionTriggered === 'add') {
+            // Inserts new trainerPerCourse in trainersPerCourse table 
+            // (adds one new trainerPerCourse but removes it if we add another one)
+            let trainersPerCourseTable = document.querySelector("#trainersPerCourseTable tbody");
+            let newTrainerPerCourse = localStorage.getItem('new_trainerPerCourse');
+            // trainersPerCourseTable.innerHTML += newTrainerPerCourse;
+        }else if (actionTriggered === 'edit') {
+            // Edits the first trainerPerCourse 
+            // (we should insert a dropdown menu and select which trainerPerCourse to edit
+            // or put edit next to every existing trainerPerCourse and select this way the trainerPerCourse to edit)
+            let trainersPerCourseTable = document.querySelector("#trainersPerCourseTable tbody");
+            let newTrainerPerCourse = localStorage.getItem('new_trainerPerCourse');
+            document.querySelector('#editFirstTrainerPerCourse').innerHTML = newTrainerPerCourse;
+        } else {
+            // Updates the second student 
+            // (we should insert a dropdown menu and select which trainerPerCourse to update
+            // or put update next to every existing trainerPerCourse and select this way the trainerPerCourse to update)
+            let trainersPerCourseTable = document.querySelector("#trainersPerCourseTable tbody");
+            let newTrainerPerCourse = localStorage.getItem('new_trainerPerCourse');
+            document.querySelector('#updateSecondTrainerPerCourse').innerHTML = newTrainerPerCourse;
+        }
+    </script>
+</body>
+</html>

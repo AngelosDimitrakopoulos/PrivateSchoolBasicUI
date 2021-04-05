@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.tables-header {
+    background-color: #333333;
+    width: 100%;
+    height: 100px;
+}
+
+.tables-header .container h1 {
+    color: #ffffff;
+    text-align: center;
+    padding-top: 30px;
+    margin: auto;
+}
+
+.navbar-tables {
+    background-color: #F88379;
+}
+.navbar-tables ul {
+    margin: 0;
+    padding: 10px;
+}
+.navbar-tables .navitem{
+    display: inline-block;
+}
+.navbar-tables .navitem a{
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333333;
+}
+
+.navbar-tables .navitem a:hover {
+    color: #ffffff;
+}
+
+.tables {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border: 2px solid #5D6D7E;
+    width: 60%;
+    margin: auto;
+    margin-top: 50px;
+  }
+  
+  .tables td, .tables th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .tables tr:nth-child(even){background-color: #f2f2f2;}
+  .tables tr:nth-child(odd){background-color: #D6DBDF;}
+  
+  .tables tr:hover {background-color: #F6DDCC;}
+  
+  .tables th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #5D6D7E;
+    color: white;
+  }
+
+  #assignmentsTable {
+      width: 80%;
+  }
+
+  #assignmentsPerCourseTable {
+    width: 80%;
+}
+
+#assignmentsPerStudentPerCourseTable {
+    width: 80%;
+}
+
+/* -------------------- Students/Trainers/Assignments per Course Tables -------------------- */
+.courseForPerCourse {
+    margin-top: 50px;
+    background-color: #F0F8FF;
+    height: 2em;
+    border-radius: 10px;
+}
+
+.courseForPerCourseLabel {
+    font-size: 1rem;
+    padding-right: 10px;
+    font-weight: bold;
+
+    margin-left: 30%;
+    line-height: 3em;
+}
+
+.studentForPerCourse {
+    margin-top: 50px;
+    background-color: #F0F8FF;
+    height: 2em;
+    border-radius: 10px;
+}
+
+.studentForPerCourseLabel {
+    font-size: 1rem;
+    padding-right: 10px;
+    font-weight: bold;
+
+    margin-left: 30%;
+    line-height: 3em;
+}

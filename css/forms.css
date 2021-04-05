@@ -1,0 +1,535 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.forms-header {
+    background-color: #333333;
+    width: 100%;
+    height: 100px;
+}
+
+.forms-header .container h1 {
+    color: #ffffff;
+    text-align: center;
+    padding-top: 30px;
+    margin: auto;
+}
+
+.navbar-forms {
+    background-color: #F88379;
+    width: 100px;
+}
+.navbar-forms ul {
+    margin: 0;
+    padding: 10px;
+}
+.navbar-forms .navitem{
+    display: inline-block;
+}
+.navbar-forms .navitem a{
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333333;
+}
+
+.navbar-forms .navitem a:hover {
+    color: #ffffff;
+}
+
+.errors {
+    color: #D4FF00;
+    font-style: italic;
+}
+
+.forms {
+    background-color: #5D6D7E;
+    padding: 20px;
+    margin: auto;
+    border-radius: 20px;
+    width: 50%;
+}
+
+.forms .form-text{
+    width: 80%;
+    padding-bottom: 15px;
+    
+}
+
+.forms .form-label{
+    width: 20%;
+    float: left;
+    color: #fff;
+    font-weight: bold;
+
+}
+
+.forms .form-value{
+    width: 100%;
+    padding-bottom: 15px;
+    /* float: left; */
+}
+
+.forms .form-value input {
+    width: 70%;
+    height: 25px;
+}
+
+#startdateaddcourse input{
+    width: 35%;
+}
+
+#enddateaddcourse input{
+    width: 35%;
+}
+
+#addcoursebtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#startdateeditcourse input{
+    width: 35%;
+}
+
+#enddateeditcourse input{
+    width: 35%;
+}
+
+#editcoursebtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#startdateupdatecourse input{
+    width: 35%;
+}
+
+#enddateupdatecourse input{
+    width: 35%;
+}
+
+#updatecoursebtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#dateofbirthaddstudent input{
+    width: 35%;
+}
+
+#addstudenttf input{
+    width: 35%;
+}
+
+#addstudentbtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#dateofbirtheditstudent input{
+    width: 35%;
+}
+
+#editstudenttf input{
+    width: 35%;
+}
+
+#editstudentbtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#dateofbirthupdatestudent input{
+    width: 35%;
+}
+
+#updatestudenttf input{
+    width: 35%;
+}
+
+#updatestudentbtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#addtrainerbtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#edittrainerbtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#updatetrainerbtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#oralmarkaddassignment input{
+    width: 35%;
+}
+
+#totalmarkaddassignment input{
+    width: 35%;
+}
+
+#addassignmentbtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#oralmarkeditassignment input{
+    width: 35%;
+}
+
+#totalmarkeditassignment input{
+    width: 35%;
+}
+
+#editassignmentbtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#oralmarkupdateassignment input{
+    width: 35%;
+}
+
+#totalmarkupdateassignment input{
+    width: 35%;
+}
+
+#updateassignmentbtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* -------------------- ... per Course Forms -------------------- */
+
+.courseForPerCourse {
+    margin-bottom: 70px;
+    background-color: #F0F8FF;
+    height: 2em;
+    border-radius: 10px;
+}
+
+.courseForPerCourseLabel {
+    font-size: 1rem;
+    padding-right: 10px;
+    font-weight: bold;
+
+    margin-left: 30%;
+    line-height: 3em;
+}
+
+.studentForPerCourse {
+    margin-bottom: 70px;
+    background-color: #F0F8FF;
+    height: 2em;
+    border-radius: 10px;
+}
+
+.studentForPerCourseLabel {
+    font-size: 1rem;
+    padding-right: 10px;
+    font-weight: bold;
+
+    margin-left: 30%;
+    line-height: 3em;
+}
+
+/* -------------------- Students per Course Forms -------------------- */
+
+#dateofbirthaddstudentpercourse input{
+    width: 35%;
+}
+
+#addstudentpercoursetf input{
+    width: 35%;
+}
+
+#addstudentpercoursebtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#dateofbirtheditstudentpercourse input{
+    width: 35%;
+}
+
+#editstudentpercoursetf input{
+    width: 35%;
+}
+
+#editstudentpercoursebtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#dateofbirthupdatestudentpercourse input{
+    width: 35%;
+}
+
+#updatestudentpercoursetf input{
+    width: 35%;
+}
+
+#updatestudentpercoursebtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+
+/* -------------------- Trainers per Course Forms -------------------- */
+
+#addtrainerpercoursebtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#edittrainerpercoursebtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#updatetrainerpercoursebtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* -------------------- Assignments per Course Forms -------------------- */
+
+
+#oralmarkaddassignmentpercourse input{
+    width: 35%;
+}
+
+#totalmarkaddassignmentpercourse input{
+    width: 35%;
+}
+
+#addassignmentpercoursebtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#oralmarkeditassignmentpercourse input{
+    width: 35%;
+}
+
+#totalmarkeditassignmentpercourse input{
+    width: 35%;
+}
+
+#editassignmentpercoursebtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#oralmarkupdateassignmentpercourse input{
+    width: 35%;
+}
+
+#totalmarkupdateassignmentpercourse input{
+    width: 35%;
+}
+
+#updateassignmentpercoursebtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* -------------------- Assignments per Student per Course Forms -------------------- */
+
+#oralmarkaddassignmentperstudentpercourse input{
+    width: 35%;
+}
+
+#totalmarkaddassignmentperstudentpercourse input{
+    width: 35%;
+}
+
+#addassignmentperstudentpercoursebtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#oralmarkeditassignmentperstudentpercourse input{
+    width: 35%;
+}
+
+#totalmarkeditassignmentperstudentpercourse input{
+    width: 35%;
+}
+
+#editassignmentperstudentpercoursebtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#oralmarkupdateassignmentperstudentpercourse input{
+    width: 35%;
+}
+
+#totalmarkupdateassignmentperstudentpercourse input{
+    width: 35%;
+}
+
+#updateassignmentperstudentpercoursebtnId {
+    background-color: #333333;
+    margin-left: 70%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+
+
+

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Assignment per Student per Course</title>
+    <link rel="stylesheet" href="../css/forms.css">
+
+</head>
+<body>
+    <header class="forms-header">
+        <div class="container">
+            <h1>UPDATE ASSIGNMENT per STUDENT per COURSE</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-forms">
+        <div class="container">
+            <ul>
+                <li class="navitem"><a href="../tables/assignmentsPerStudentPerCourse.html">Back</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- <label class="courseForPerCourseLabel" for="courseForPerCourse">Update Assignment from Course:</label>
+    <select name="course" class="courseForPerCourse">
+        <option value="" selected disabled hidden>--Please choose a Course--</option>
+        <option value="CB8 Java Full Time">CB8 Java Full Time</option>
+        <option value="CB8 Java Part Time">CB8 Java Part Time</option>
+        <option value="CB8 C# Full Time">CB8 C# Full Time</option>
+        <option value="CB8 C# Part Time">CB8 C# Part Time</option>
+    </select>
+        <br>
+    <label class="studentForPerCourseLabel" for="studentForPerCourse">Update Assignment from Student:</label>
+    <select name="student" class="studentForPerCourse">
+        <option value="" selected disabled hidden>--Please choose a Student--</option>
+        <option value="Angelos Dimitrakopoulos">Angelos Dimitrakopoulos</option>
+        <option value="Iosif Argiropoulos">Iosif Argiropoulos</option>
+        <option value="Eleni Logara">Eleni Logara</option>
+        <option value="Alexandros Kontos">Alexandros Kontos</option>
+    </select> -->
+
+        <div>
+            <form id="updateAssignmentPerStudentPerCourseForm" class="forms" name="assignmentForm">
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Title: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="(J|C#|JS|P)(FT|PT)\s(Assignment|Project)\s([0-9]{1})" id="updateAssignmentPerStudentPerCourseTitle" type="text" value="JFT Assignment 2"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Description: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required id="updateAssignmentPerStudentPerCourseDescription" type="text" value="Second Full Time Java Assignment"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Submission DateTime: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required id="updateAssignmentPerStudentPerCourseSubmissionDateTime" type="datetime-local" value="2019-01-29T23:59"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Oral Mark: </label>
+                    </div>
+                    <div id="oralmarkupdateassignmentperstudentpercourse" class="form-value">
+                        <input required pattern="(\.\.|[0-9]{2})(/20)" id="updateAssignmentPerStudentPerCourseOralMark" type="text" value="../20"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Total Mark: </label>
+                    </div>
+                    <div id="totalmarkupdateassignmentperstudentpercourse" class="form-value">
+                        <input required pattern="(\.\.|[0-9]{2,3})(/100)" id="updateAssignmentPerStudentPerCourseTotalMark" type="text" value="../100"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Course: </label>
+                    </div>
+                    <div class="form-value">
+                        <select id="courseupdateassignmentperstudentpercourse" style="height: 30px; width: 40%;">
+                            <option selected="selected" value="CB8 Java Full Time">CB8 Java Full Time</option>
+                            <option value="CB8 Java Part Time">CB8 Java Part Time</option>
+                            <option value="CB8 C# Full Time">CB8 C# Full Time</option>
+                            <option value="CB8 C# Part Time">CB8 C# Part Time</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Student: </label>
+                    </div>
+                    <div class="form-value">
+                        <select id="studentupdateassignmentperstudentpercourse" style="height: 30px; width: 40%;">
+                            <option selected="selected" value="Angelos Dimitrakopoulos">Angelos Dimitrakopoulos</option>
+                            <option value="Iosif Argiropoulos">Iosif Argiropoulos</option>
+                            <option value="Eleni Logara">Eleni Logara</option>
+                            <option value="Alexandros Kontos">Alexandros Kontos</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" id="updateassignmentperstudentpercoursebtnId">Confirm</button>
+            </form>
+          </div>
+ 
+          <script>
+            let updateAssignmentPerStudentPerCourseForm = document.querySelector('#updateAssignmentPerStudentPerCourseForm');
+            updateAssignmentPerStudentPerCourseForm.addEventListener('submit', handleSubmit);
+    
+            function handleSubmit(e){
+    
+                e.preventDefault();
+                let title = document.querySelector("#updateAssignmentPerStudentPerCourseTitle").value;
+                let description = document.querySelector("#updateAssignmentPerStudentPerCourseDescription").value;
+                let submissionDateTime = document.querySelector("#updateAssignmentPerStudentPerCourseSubmissionDateTime").value;
+                let oralMark = document.querySelector("#updateAssignmentPerStudentPerCourseOralMark").value;
+                let totalMark = document.querySelector("#updateAssignmentPerStudentPerCourseTotalMark").value;
+                let course = document.querySelector("#courseupdateassignmentperstudentpercourse").value;
+                let student = document.querySelector("#studentupdateassignmentperstudentpercourse").value;
+                let newAssignmentPerStudentPerCourse = `<td>${title}</td><td>${description}</td><td>${submissionDateTime}</td><td>${oralMark}</td><td>${totalMark}</td><td>${course}</td><td>${student}</td>`;
+
+                localStorage.setItem('action_triggered', 'update');
+                localStorage.setItem('new_assignmentPerStudentPerCourse', newAssignmentPerStudentPerCourse);
+                window.document.location = '../tables/assignmentsPerStudentPerCourse.html';
+
+            }
+        </script>
+</body>
+</html>

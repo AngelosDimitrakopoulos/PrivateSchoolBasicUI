@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Trainer per Course</title>
+    <link rel="stylesheet" href="../css/forms.css">
+
+</head>
+<body>
+    <header class="forms-header">
+        <div class="container">
+            <h1>EDIT TRAINER per COURSE</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-forms">
+        <div class="container">
+            <ul>
+                <li class="navitem"><a href="../tables/trainersPerCourse.html">Back</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- <label class="courseForPerCourseLabel" for="courseForPerCourse">Edit Trainer from Course:</label>
+    <select name="course" class="courseForPerCourse">
+        <option value="" selected disabled hidden>--Please choose a Course--</option>
+        <option value="CB8 Java Full Time">CB8 Java Full Time</option>
+        <option value="CB8 Java Part Time">CB8 Java Part Time</option>
+        <option value="CB8 C# Full Time">CB8 C# Full Time</option>
+        <option value="CB8 C# Part Time">CB8 C# Part Time</option>
+    </select> -->
+
+
+        <div>
+            <form id="editTrainerPerCourseForm" class="forms" name="trainerForm">
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>First Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="editTrainerPerCourseFirstName" type="text" value="Anestis"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Last Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="editTrainerPerCourseLastName" type="text" value="Sotiriou"/>
+                    </div>
+                </div>
+
+               
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Subject: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z\s]{2,15}" id="editTrainerPerCourseSubject" type="text" value="Front End"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Course: </label>
+                    </div>
+                    <div class="form-value">
+                        <select id="courseedittrainerpercourse" style="height: 30px; width: 40%;">
+                            <option selected="selected" value="CB8 Java Full Time">CB8 Java Full Time</option>
+                            <option value="CB8 Java Part Time">CB8 Java Part Time</option>
+                            <option value="CB8 C# Full Time">CB8 C# Full Time</option>
+                            <option value="CB8 C# Part Time">CB8 C# Part Time</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" id="edittrainerpercoursebtnId">Save</button>
+            </form>
+          </div>
+ 
+          <script>
+            let editTrainerPerCourseForm = document.querySelector('#editTrainerPerCourseForm');
+            editTrainerPerCourseForm.addEventListener('submit', handleSubmit);
+    
+            function handleSubmit(e){
+    
+                e.preventDefault();
+                let firstName = document.querySelector("#editTrainerPerCourseFirstName").value;
+                let lastName = document.querySelector("#editTrainerPerCourseLastName").value;
+                let subject = document.querySelector("#editTrainerPerCourseSubject").value;
+                let course = document.querySelector("#courseedittrainerpercourse").value;
+                let newTrainerPerCourse = `<td>${firstName}</td><td>${lastName}</td><td>${subject}</td><td>${course}</td>`;
+
+                localStorage.setItem('action_triggered', 'edit');
+                localStorage.setItem('new_trainerPerCourse', newTrainerPerCourse);
+                window.document.location = '../tables/trainersPerCourse.html';
+
+            }
+        </script>
+</body>
+</html>

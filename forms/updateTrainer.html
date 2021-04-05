@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Trainer Student</title>
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <header class="forms-header">
+        <div class="container">
+            <h1>UPDATE TRAINER</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-forms">
+        <div class="container">
+            <ul>
+                <li class="navitem"><a href="../tables/trainers.html">Back</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+        <div>
+            <form id="updateTrainerForm"  class="forms" name="trainerForm">
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>First Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="updateTrainerFirstName" type="text" value="Ioannis"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Last Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="updateTrainerLastName" type="text" value="Euaggelopoulos"/>
+                    </div>
+                </div>
+
+               
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Subject: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z\s]{2,15}" id="updateTrainerSubject" type="text" value="Back End"/>
+                    </div>
+                </div>
+                
+                <button type="submit" id="updatetrainerbtnId">Confirm</button>
+
+            </form>
+          </div>
+          
+        <script>
+            let updateTrainerForm = document.querySelector('#updateTrainerForm');
+            updateTrainerForm.addEventListener('submit', handleSubmit);
+    
+            function handleSubmit(e){
+    
+                e.preventDefault();
+                let firstName = document.querySelector("#updateTrainerFirstName").value;
+                let lastName = document.querySelector("#updateTrainerLastName").value;
+                let subject = document.querySelector("#updateTrainerSubject").value;
+                let newTrainer = `<td>${firstName}</td><td>${lastName}</td><td>${subject}</td>`;
+
+                localStorage.setItem('action_triggered', 'update');
+                localStorage.setItem('new_trainer', newTrainer);
+                window.document.location = '../tables/trainers.html';
+
+            }
+        </script>
+
+</body>
+</html>

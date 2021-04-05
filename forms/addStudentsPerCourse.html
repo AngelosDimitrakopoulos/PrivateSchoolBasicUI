@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student per Course</title>
+    <link rel="stylesheet" href="../css/forms.css">
+
+</head>
+<body>
+    <header class="forms-header">
+        <div class="container">
+            <h1>ADD STUDENT per COURSE</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-forms">
+        <div class="container">
+            <ul>
+                <li class="navitem"><a href="../tables/studentsPerCourse.html">Back</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- <label class="courseForPerCourseLabel" for="courseForPerCourse">Add Student to Course:</label>
+    <select name="course" class="courseForPerCourse">
+        <option value="" selected disabled hidden>--Please choose a Course--</option>
+        <option value="CB8 Java Full Time">CB8 Java Full Time</option>
+        <option value="CB8 Java Part Time">CB8 Java Part Time</option>
+        <option value="CB8 C# Full Time">CB8 C# Full Time</option>
+        <option value="CB8 C# Part Time">CB8 C# Part Time</option>
+    </select> -->
+
+
+        <div>
+            <form id="addStudentPerCourseForm" class="forms" name="studentPerCourseForm">
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>First Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="addStudentPerCourseFirstName" type="text" placeholder="first name..."/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Last Name: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="[A-Za-z]{2,25}" id="addStudentPerCourseLastName" type="text" placeholder="last name..."/>
+                    </div>
+                </div>
+
+               
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Date of Birth: </label>
+                    </div>
+                    <div id="dateofbirthaddstudentpercourse" class="form-value">
+                        <input required id="addStudentPerCourseDate" type="date"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Tuition Fees: </label>
+                    </div>
+                    <div id="addstudentpercoursetf" class="form-value">
+                        <input required pattern="[0-9]{4}" id="addStudentPerCourseFees" type="text" placeholder="4 digit value..."/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Course: </label>
+                    </div>
+                    <div class="form-value">
+                        <select id="courseaddstudentpercourse" style="height: 30px; width: 40%;">
+                            <option value="CB8 Java Full Time">CB8 Java Full Time</option>
+                            <option value="CB8 Java Part Time">CB8 Java Part Time</option>
+                            <option value="CB8 C# Full Time">CB8 C# Full Time</option>
+                            <option value="CB8 C# Part Time">CB8 C# Part Time</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" id="addstudentpercoursebtnId">Add</button>
+            </form>
+        </div>
+ 
+        <script>
+            let addStudentPerCourseForm = document.querySelector('#addStudentPerCourseForm');
+            addStudentPerCourseForm.addEventListener('submit', handleSubmit);
+    
+            function handleSubmit(e){
+    
+                e.preventDefault();
+                let firstName = document.querySelector("#addStudentPerCourseFirstName").value;
+                let lastName = document.querySelector("#addStudentPerCourseLastName").value;
+                let date = document.querySelector("#addStudentPerCourseDate").value;
+                let fees = document.querySelector("#addStudentPerCourseFees").value;
+                let course = document.querySelector("#courseaddstudentpercourse").value;
+                let newStudentPerCourse = `<td>${firstName}</td><td>${lastName}</td><td>${date}</td><td>${fees}</td><td>${course}</td>`;
+
+                localStorage.setItem('action_triggered', 'add');
+                localStorage.setItem('new_studentPerCourse', newStudentPerCourse);
+                window.document.location = '../tables/studentsPerCourse.html';
+
+            }
+        </script>
+</body>
+</html>

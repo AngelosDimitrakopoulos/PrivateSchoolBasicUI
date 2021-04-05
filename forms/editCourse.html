@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Course</title>
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <header class="forms-header">
+        <div class="container">
+            <h1>EDIT COURSE</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-forms">
+        <ul>
+            <li class="navitem"><a href="../tables/courses.html">Back</a></li>
+        </ul>
+    </nav>
+    
+    <div>
+        <form id="editCourseForm" class="forms" name="courseForm">
+
+            <div class="form-text">
+                <div class="form-label">
+                    <label>Title: </label>
+                </div>
+                <div class="form-value">
+                    <input required pattern="(CB)(\d{1,2})" id="editCourseTitle" type="text" value="CB8"/>
+                </div> 
+            </div>
+
+            <div class="form-text">
+                <div class="form-label">
+                    <label>Stream: </label>
+                </div>
+                <div class="form-value">
+                    <select id="editCourseStream" style="height: 30px; width: 40%;">
+                        <option selected="selected" value="Java">Java</option>
+                        <option value="C#">C#</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Python">Python</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-text">
+                <div class="form-label">
+                    <label>Type: </label>
+                </div>
+                <div class="form-value">
+                    <select id="editCourseType" style="height: 30px; width: 40%;">
+                        <option selected="selected" value="Full Time">Full Time</option>
+                        <option value="Part Time">Part Time</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-text">
+                <div class="form-label">
+                    <label>Start Date: </label>
+                </div>
+                <div id="startdateeditcourse" class="form-value">
+                    <input required id="editCourseStartDate" type="date" value="2018-01-01"/>
+                </div>
+            </div>
+
+            <div class="form-text">
+                <div class="form-label">
+                    <label>End Date: </label>
+                </div>
+                <div id="enddateeditcourse" class="form-value">
+                    <input required id="editCourseEndDate" type="date" value="2018-03-31"/>
+                </div>
+            </div>
+            
+            <button type="submit" id="editcoursebtnId">Save</button>
+        </form>
+      </div>
+
+    <script>
+        let editCourseForm = document.querySelector('#editCourseForm');
+        editCourseForm.addEventListener('submit', handleSave);
+
+        function handleSave(e){
+
+            e.preventDefault();
+            let title = document.querySelector("#editCourseTitle").value;
+            let stream = document.querySelector("#editCourseStream").value;
+            let type = document.querySelector("#editCourseType").value;
+            let startDate = document.querySelector("#editCourseStartDate").value;
+            let endDate = document.querySelector("#editCourseEndDate").value;
+            let newCourse = `<td>${title}</td><td>${stream}</td><td>${type}</td><td>${startDate}</td><td>${endDate}</td>`;
+
+            if(startDate>=endDate){
+                e.preventDefault();
+                errorCourseDates.innerText = 'invalid dates';
+            } else{
+                e.preventDefault();
+                localStorage.setItem('action_triggered', 'edit');
+                localStorage.setItem('new_course', newCourse);
+                window.document.location = '../tables/courses.html';
+            }
+
+            
+}
+    </script>
+</body>
+</html>

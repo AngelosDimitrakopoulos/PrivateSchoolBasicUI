@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Assignment per Course</title>
+    <link rel="stylesheet" href="../css/forms.css">
+
+</head>
+<body>
+    <header class="forms-header">
+        <div class="container">
+            <h1>ADD ASSIGNMENT per COURSE</h1>
+        </div>
+    </header>
+
+    <nav class="navbar-forms">
+        <div class="container">
+            <ul>
+                <li class="navitem"><a href="../tables/assignmentsPerCourse.html">Back</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- <label class="courseForPerCourseLabel" for="courseForPerCourse">Add Assignment to Course:</label>
+    <select name="course" class="courseForPerCourse">
+        <option value="" selected disabled hidden>--Please choose a Course--</option>
+        <option value="CB8 Java Full Time">CB8 Java Full Time</option>
+        <option value="CB8 Java Part Time">CB8 Java Part Time</option>
+        <option value="CB8 C# Full Time">CB8 C# Full Time</option>
+        <option value="CB8 C# Part Time">CB8 C# Part Time</option>
+    </select> -->
+
+
+        <div>
+            <form id="addAssignmentPerCourseForm" class="forms" name="assignmentForm">
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Title: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required pattern="(J|C#|JS|P)(FT|PT)\s(Assignment|Project)\s([0-9]{1})" id="addAssignmentPerCourseTitle" type="text" placeholder="eg. JFT Assignment 1..."/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Description: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required id="addAssignmentPerCourseDescription" type="text" placeholder="eg. First Full Time Java Assignment..."/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Submission DateTime: </label>
+                    </div>
+                    <div class="form-value">
+                        <input required id="addAssignmentPerCourseSubmissionDateTime" type="datetime-local"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Oral Mark: </label>
+                    </div>
+                    <div id="oralmarkaddassignmentpercourse" class="form-value">
+                        <input required pattern="(\.\.|[0-9]{2})(/20)" id="addAssignmentPerCourseOralMark" type="text" placeholder="eg. ../20"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Total Mark: </label>
+                    </div>
+                    <div id="totalmarkaddassignmentpercourse" class="form-value">
+                        <input required pattern="(\.\.|[0-9]{2,3})(/100)" id="addAssignmentPerCourseTotalMark" type="text" placeholder="eg. ../100"/>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <div class="form-label">
+                        <label>Course: </label>
+                    </div>
+                    <div class="form-value">
+                        <select id="courseaddassignmentpercourse" style="height: 30px; width: 40%;">
+                            <option value="CB8 Java Full Time">CB8 Java Full Time</option>
+                            <option value="CB8 Java Part Time">CB8 Java Part Time</option>
+                            <option value="CB8 C# Full Time">CB8 C# Full Time</option>
+                            <option value="CB8 C# Part Time">CB8 C# Part Time</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" id="addassignmentpercoursebtnId">Add</button>
+            </form>
+          </div>
+
+          <script>
+            let addAssignmentPerCourseForm = document.querySelector('#addAssignmentPerCourseForm');
+            addAssignmentPerCourseForm.addEventListener('submit', handleSubmit);
+    
+            function handleSubmit(e){
+    
+                e.preventDefault();
+                let title = document.querySelector("#addAssignmentPerCourseTitle").value;
+                let description = document.querySelector("#addAssignmentPerCourseDescription").value;
+                let submissionDateTime = document.querySelector("#addAssignmentPerCourseSubmissionDateTime").value;
+                let oralMark = document.querySelector("#addAssignmentPerCourseOralMark").value;
+                let totalMark = document.querySelector("#addAssignmentPerCourseTotalMark").value;
+                let course = document.querySelector("#courseaddassignmentpercourse").value;
+                let newAssignmentPerCourse = `<td>${title}</td><td>${description}</td><td>${submissionDateTime}</td><td>${oralMark}</td><td>${totalMark}</td><td>${course}</td>`;
+
+                localStorage.setItem('action_triggered', 'add');
+                localStorage.setItem('new_assignmentPerCourse', newAssignmentPerCourse);
+                window.document.location = '../tables/assignmentsPerCourse.html';
+
+            }
+        </script>
+</body>
+</html>
